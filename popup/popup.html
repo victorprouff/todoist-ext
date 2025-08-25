@@ -5,9 +5,27 @@
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div id="url"></div>
-  <div id="h1"></div>
+  <div>
+    <label for="taskTitle">Titre de la tâche :</label>
+    <input type="text" id="taskTitle" placeholder="Titre (H1 de la page)">
+  </div>
+  <div>
+    <label for="taskUrl">URL :</label>
+    <input type="text" id="taskUrl" placeholder="URL de la page">
+  </div>
+  <div>
+    <label for="taskSection">Section :</label>
+    <select id="taskSection">
+      <option value="181074705">Youtube</option>
+      <option value="179438112">Articles</option>
+      <option value="181074629">Tools</option>
+      <option value="184011119">Podcast</option>
+      <option value="184719314">Livre</option>
+    </select>
+  </div>
   <button id="addToTodoist">Ajouter à Todoist</button>
+  <br>
+  <a href="#" id="openOptions">Paramétrer l'API Todoist</a>
   <script src="popup.js"></script>
 </body>
 </html>

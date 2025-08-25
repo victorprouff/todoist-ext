@@ -1,24 +1,51 @@
 body {
   width: 300px;
-  padding: 10px;
+  padding: 15px;
   font-family: Arial, sans-serif;
 }
 
-#url, #h1 {
+div {
   margin-bottom: 10px;
-  word-break: break-all;
 }
 
-#addToTodoist {
-  margin-top: 10px;
-  padding: 8px 12px;
+label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-#addToTodoist:hover {
+button:hover {
   background-color: #45a049;
+}
+
+#openOptions {
+  display: block;
+  margin-top: 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+#openOptions:hover {
+  text-decoration: underline;
 }
