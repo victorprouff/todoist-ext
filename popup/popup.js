@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const taskSectionSelect = document.getElementById('taskSection');
   const addToTodoistButton = document.getElementById('addToTodoist');
   const openOptionsLink = document.getElementById('openOptions');
+  const messageDiv = document.getElementById('message');
+
+  // Fonction pour afficher un message
+  function showMessage(text, isSuccess) {
+    messageDiv.textContent = text;
+    messageDiv.className = isSuccess ? 'success' : 'error';
+  }
 
   // Ouvre la page d'options
   openOptionsLink.addEventListener('click', (e) => {
@@ -36,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
     browser.storage.local.get(['apiToken', 'projectId'])
       .then(data => {
         if (!data.apiToken) {
-          alert('Veuillez renseigner votre clé API Todoist dans les options.');
+          showMessage('Veuillez renseigner votre clé API Todoist dans les options.', false);
           return;
         }
         if (!data.projectId) {
-          alert('Veuillez renseigner l\'ID du projet Todoist dans les options.');
+          showMessage('Veuillez renseigner l\'ID du projet Todoist dans les options.', false);
           return;
         }
         addTaskToTodoist(title, url, data.apiToken, sectionId);
@@ -68,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(data => {
-      alert('Tâche ajoutée à Todoist avec succès !');
+      showMessage('Tâche ajoutée à Todoist avec succès !', true);
     })
     .catch(error => {
       console.error('Erreur:', error);
-      alert('Erreur lors de l\'ajout de la tâche.');
+      showMessage('Erreur lors de l\'ajout de la tâche.', false);
     });
   }
 });

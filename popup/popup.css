@@ -49,3 +49,27 @@ button:hover {
 #openOptions:hover {
   text-decoration: underline;
 }
+
+#message {
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#message.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  display: block;
+}
+
+#message.error {
+  background-color: #f2dede;
+  color: #a94442;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
