@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const taskTitleInput = document.getElementById('taskTitle');
+  const taskCommentInput = document.getElementById('taskComment');
   const taskUrlInput = document.getElementById('taskUrl');
   const taskSectionSelect = document.getElementById('taskSection');
   const addToTodoistButton = document.getElementById('addToTodoist');
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ajoute la tâche à Todoist
   addToTodoistButton.addEventListener('click', () => {
     const title = taskTitleInput.value;
+    const comment = taskCommentInput.value;
     const url = taskUrlInput.value;
     const sectionId = taskSectionSelect.value;
 
@@ -50,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
           showMessage('Veuillez renseigner l\'ID du projet Todoist dans les options.', false);
           return;
         }
-        addTaskToTodoist(title, url, data.apiToken, sectionId);
+        addTaskToTodoist(title, comment, url, data.apiToken, sectionId);
       });
   });
 
-  function addTaskToTodoist(content, url, apiToken, sectionId) {
+  function addTaskToTodoist(content, comment, url, apiToken, sectionId) {
     const taskData = {
-      content: `[${content}](${url})`,
+      content: `[${content}](${url})` + (comment ? ` - ${comment}` : ''),
       section_id: sectionId
     };
 

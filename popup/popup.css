@@ -73,3 +73,12 @@ button:hover {
 .hidden {
   display: none;
 }
+
+#taskComment {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
